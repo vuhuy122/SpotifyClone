@@ -9,6 +9,8 @@ import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 
+import { LogBox } from "react-native";
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -45,6 +47,9 @@ export default function RootLayout() {
 
   return <RootLayoutNav />;
 }
+
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
